@@ -36,23 +36,22 @@ that you plan to manage!
   that, consult the [Ansible
   documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
   for more information.
-* When adding a new user, the user's public ssh key will be fetched from
-  [AWS SSM](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html),
-  so it must be stored as a parameter at this path: `/ssh/public_keys/USERID`
-  (where `USERID` is the name of the new user that you are adding).
+* When adding a new user, the user's public ssh key must be stored as a
+  parameter in
+  [AWS SSM](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
 
 ## Usage ##
 
 ### Adding a new user account ###
 
 ```console
-ansible-playbook -i inventory.txt create/playbook.yml -e "username=USERID" --become
+ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="username=USERID ssm_public_key=/path/to/key" --become
 ```
 
 ### Deleting an existing user account ###
 
 ```console
-ansible-playbook -i inventory.txt delete/playbook.yml -e "username=USERID" --become
+ansible-playbook --inventory=inventory.txt delete/playbook.yml --extra-vars="username=USERID" --become
 ```
 
 ## Contributing ##
