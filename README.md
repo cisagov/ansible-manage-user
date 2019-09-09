@@ -1,23 +1,59 @@
-# ansible-manage-user #
+# ansible-manage-user ⚙️ #
 
 [![Build Status](https://travis-ci.com/cisagov/ansible-manage-user.svg?branch=develop)](https://travis-ci.com/cisagov/ansible-manage-user)
 
 Ansible playbooks to manage a user account on a set of hosts.
 
+These are the actions that are currently supported:
+
+* Create a new user account and add a public ssh key to its
+  `authorized_keys` file
+* Delete an existing user account and all of its directories and files
+
+## Warning ⚠️ ##
+
+These commands can be damaging, so always double-check the id of the user
+that you plan to manage!
+
 ## Pre-requisites ##
 
-You must run these playbooks as a user that has ssh access to each target
-host, as well as sudo privileges on each target host.
+* You must run these playbooks as a user that has ssh access to each target host
+  in your inventory and sudo privileges on each target host.
+* You must create a simple inventory file containing the name or IP address
+  of each target host that you wish to manage users on (one host per line).
+  A sample inventory file might look like this:
+
+  ```console
+  my_server
+  my_database
+  sample.mydomain.com
+  db.mydomain.com
+  192.168.1.5
+  192.168.1.6
+  ```
+
+  Ansible supports more complicated inventory management.  If you have a need for
+  that, consult the [Ansible
+  documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+  for more information.
+* When adding a new user, the user's public ssh key will be fetched from
+  [AWS SSM](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html),
+  so it must be stored as a parameter at this path: `/ssh/public_keys/USERID`
+  (where `USERID` is the name of the new user that you are adding).
 
 ## Usage ##
 
 ### Adding a new user account ###
 
-TBD
+```console
+ansible-playbook -i inventory.txt create/playbook.yml -e "username=USERID" --become
+```
 
 ### Deleting an existing user account ###
 
-TBD
+```console
+ansible-playbook -i inventory.txt delete/playbook.yml -e "username=USERID" --become
+```
 
 ## Contributing ##
 
