@@ -1,0 +1,10 @@
+---
+# tasks file for delete user
+
+- hosts: all
+  tasks:
+    - name: Delete account for user
+      user:
+        name: "{{ username }}"
+        remove: yes
+        state: absent
