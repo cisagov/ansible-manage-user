@@ -1,0 +1,16 @@
+---
+# tasks file for create user
+
+- hosts: all
+  vars:
+    - public_key: "{{ lookup('aws_ssm', '/ssh/public_keys/{{ username }}') }}"
+  tasks:
+    - name: Create account for user
+      user:
+        name: "{{ username }}"
+        shell: /bin/bash
+
+    - name: Add ssh public key as authorized key for user
+      authorized_key:
+        user: "{{ username }}"
+        key: "{{ public_key }}"
