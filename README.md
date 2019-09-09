@@ -2,15 +2,22 @@
 
 [![Build Status](https://travis-ci.com/cisagov/ansible-manage-user.svg?branch=develop)](https://travis-ci.com/cisagov/ansible-manage-user)
 
-This is a generic skeleton project that can be used to quickly get a
-new [cisagov](https://github.com/cisagov) GitHub project started.
-This skeleton project contains [licensing information](LICENSE), as
-well as [pre-commit hooks](https://pre-commit.com) and a [Travis
-CI](https://travis-ci.com) configuration appropriate for the major
-languages that we use.
+Ansible playbooks to manage a user account on a set of hosts.
 
-In many cases you will instead want to use one of the more specific
-skeleton projects derived from this one.
+## Pre-requisites ##
+
+You must run these playbooks as a user that has ssh access to each target
+host, as well as sudo privileges on each target host.
+
+## Usage ##
+
+### Adding a new user account ###
+
+TBD
+
+### Deleting an existing user account ###
+
+TBD
 
 ## Contributing ##
 
