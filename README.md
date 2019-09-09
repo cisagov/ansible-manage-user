@@ -38,14 +38,14 @@ that you plan to manage!
   for more information.
 * When adding a new user, the user's public ssh key must be stored as a
   parameter in
-  [AWS SSM](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
+  [AWS SSM](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html).
 
 ## Usage ##
 
 ### Adding a new user account ###
 
 ```console
-ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="username=USERID ssm_public_key=/path/to/key" --become
+ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="username=USERID ssm_public_key=/PATH/TO/KEY" --become
 ```
 
 ### Deleting an existing user account ###
