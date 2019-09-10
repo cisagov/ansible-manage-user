@@ -12,3 +12,12 @@
       authorized_key:
         user: "{{ username }}"
         key: "{{ lookup('aws_ssm', '{{ ssm_public_key }}') }}"
+
+    - name: Allow user to use sudo without password
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^{{ username }} ALL\='
+        line: '{{ username }} ALL=(ALL) NOPASSWD:ALL'
+        validate: 'visudo -cf %s'
+      when: allow_sudo|bool
