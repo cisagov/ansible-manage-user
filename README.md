@@ -7,7 +7,8 @@ Ansible playbooks to manage a user account on a set of hosts.
 These are the actions that are currently supported:
 
 * Create a new user account and add a public ssh key to its
-  `authorized_keys` file
+  `authorized_keys` file, with the option to allow the user to run
+  privileged commands via `sudo`
 * Delete an existing user account and all of its directories and files
 
 ## Warning ⚠️ ##
@@ -46,6 +47,12 @@ that you plan to manage!
 
 ```console
 ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="username=USERID ssm_public_key=/PATH/TO/KEY" --become
+```
+
+### Adding a new privileged user account (allowed to sudo) ###
+
+```console
+ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="allow_sudo=true username=USERID ssm_public_key=/PATH/TO/KEY" --become
 ```
 
 ### Deleting an existing user account ###
