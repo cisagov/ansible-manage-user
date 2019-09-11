@@ -8,10 +8,3 @@
         name: "{{ username }}"
         remove: yes
         state: absent
-
-    - name: Remove user from /etc/sudoers (if they were in there)
-      lineinfile:
-        dest: /etc/sudoers
-        state: absent
-        regexp: '^{{ username }} ALL\='
-        validate: 'visudo -cf %s'
