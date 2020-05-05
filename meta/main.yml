@@ -1,0 +1,35 @@
+---
+galaxy_info:
+  author: David Redmin
+  description: Ansible playbooks to manage a user account on a set of hosts.
+  company: CISA Cyber Assessments
+  license: CC0
+  min_ansible_version: 2.0
+  platforms:
+    - name: Amazon
+      versions:
+        - 2
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+        # Kali linux isn't an option here, but it is based on
+        # Debian Testing:
+        # https://www.kali.org/docs/policy/kali-linux-relationship-with-debian
+        - bullseye
+    - name: Fedora
+      versions:
+        - 29
+        # Ansible currently insists on installing python2-dnf, which
+        # does not exist in Fedora 30.  Until that is resolved, we
+        # can't use Fedora 30.
+        # - 30
+        - 31
+    - name: Ubuntu
+      versions:
+        - bionic
+        - xenial
+  galaxy_tags:
+    - skeleton
+
+dependencies: []
