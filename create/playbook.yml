@@ -15,7 +15,7 @@
     - name: Add ssh public key as authorized key for user
       authorized_key:
         user: "{{ username }}"
-        key: "{{ lookup('aws_ssm', '{{ ssm_public_key }}') }}"
+        key: "{{ lookup('aws_ssm', ssm_public_key, region=ssm_region) }}"
 
     - name: Allow user to use sudo without password
       block:

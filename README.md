@@ -1,6 +1,8 @@
 # ansible-manage-user ⚙️ #
 
-[![Build Status](https://travis-ci.com/cisagov/ansible-manage-user.svg?branch=develop)](https://travis-ci.com/cisagov/ansible-manage-user)
+[![GitHub Build Status](https://github.com/cisagov/ansible-manage-user/workflows/build/badge.svg)](https://github.com/cisagov/ansible-manage-user/actions)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-manage-user.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-manage-user/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-manage-user.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-manage-user/context:python)
 
 Ansible playbooks to manage a user account on a set of hosts.
 
@@ -46,13 +48,13 @@ that you plan to manage!
 ### Adding a new user account ###
 
 ```console
-ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="username=USERID ssm_public_key=/PATH/TO/KEY" --become
+ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="username=USERID ssm_public_key=/PATH/TO/KEY ssm_region=us-east-1" --become
 ```
 
 ### Adding a new privileged user account (allowed to sudo) ###
 
 ```console
-ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="allow_sudo=true username=USERID ssm_public_key=/PATH/TO/KEY" --become
+ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="allow_sudo=true username=USERID ssm_public_key=/PATH/TO/KEY ssm_region=us-east-1" --become
 ```
 
 ### Deleting an existing user account ###
@@ -78,3 +80,7 @@ dedication](https://creativecommons.org/publicdomain/zero/1.0/).
 All contributions to this project will be released under the CC0
 dedication. By submitting a pull request, you are agreeing to comply
 with this waiver of copyright interest.
+
+## Author Information ##
+
+David Redmin - <david.redmin@trio.dhs.gov>

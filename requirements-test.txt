@@ -1,1 +1,6 @@
+ansible-lint
+flake8
+molecule[docker]
 pre-commit
+testinfra
+yamllint
