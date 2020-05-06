@@ -30,6 +30,9 @@ galaxy_info:
         - bionic
         - xenial
   galaxy_tags:
-    - skeleton
+    - account
+    - admin
+    - management
+    - user
 
 dependencies: []
