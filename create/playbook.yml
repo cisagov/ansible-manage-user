@@ -12,6 +12,11 @@
         name: "{{ username }}"
         shell: /bin/bash
 
+    - name: Set home directory permissions
+      file:
+        mode: 0750
+        path: /home/{{ username }}
+
     - name: Add ssh public key as authorized key for user
       authorized_key:
         user: "{{ username }}"
