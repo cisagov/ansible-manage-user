@@ -1,6 +1,2 @@
-ansible-lint
-flake8
-molecule[docker]
+--requirement requirements.txt
 pre-commit
-testinfra
-yamllint

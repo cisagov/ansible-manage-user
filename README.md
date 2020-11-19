@@ -65,7 +65,7 @@ ansible-playbook --inventory=inventory.txt delete/playbook.yml --extra-vars="use
 
 ## Contributing ##
 
-We welcome contributions!  Please see [here](CONTRIBUTING.md) for
+We welcome contributions!  Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for
 details.
 
 ## License ##
