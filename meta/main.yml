@@ -33,7 +33,6 @@ galaxy_info:
         - 33
     - name: Ubuntu
       versions:
-        - xenial
         - bionic
         - focal
 
