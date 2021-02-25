@@ -4,7 +4,7 @@
 - hosts: all
   tasks:
     - name: Delete account for user
-      user:
+      ansible.builtin.user:
         name: "{{ username }}"
         remove: yes
         state: absent
