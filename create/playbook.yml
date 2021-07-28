@@ -20,7 +20,7 @@
     - name: Add ssh public key as authorized key for user
       ansible.posix.authorized_key:
         user: "{{ username }}"
-        key: "{{ lookup('aws_ssm', ssm_public_key, region=ssm_region) }}"
+        key: "{{ ssh_public_key }}"
 
     - name: Allow user to use sudo without password
       block:
