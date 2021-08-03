@@ -52,7 +52,7 @@ that you plan to manage!
   for more information.
 * You must create a directory `group_vars` at the root of this project
   that contains files with the Ansible variable values for each group
-  specified in the inventory; for example, so specify the same values
+  specified in the inventory; for example, to specify the same values
   for every host in the inventory you might create a single file named
   `all.yml` that looks like this:
 
