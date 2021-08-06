@@ -8,10 +8,10 @@ Ansible playbooks to manage a user account on a set of hosts.
 
 These are the actions that are currently supported:
 
-* Create a new user account and add a public ssh key to its
+- Create a new user account and add a public ssh key to its
   `authorized_keys` file, with the option to allow the user to run
   privileged commands via `sudo`
-* Delete an existing user account and all of its directories and files
+- Delete an existing user account and all of its directories and files
 
 ## Warning ⚠️ ##
 
@@ -20,47 +20,61 @@ that you plan to manage!
 
 ## Pre-requisites ##
 
-* You must run these playbooks as a user that has ssh access to each target host
-  in your inventory and sudo privileges on each target host.
-* You must create a simple inventory file containing the name or IP address
-  of each target host that you wish to manage users on (one host per line).
-  A sample inventory file might look like this:
+- You must run these playbooks as a user that has ssh access to and
+  sudo privileges on each target host in your inventory.
+- You must create an Ansible inventory file at the root of this
+  project containing the name or IP address of each target host on
+  which you wish to manage users.  A sample inventory file might look
+  like this:
 
-  ```console
-  my_server
-  my_database
-  sample.mydomain.com
-  db.mydomain.com
-  192.168.1.5
-  192.168.1.6
+  ```yaml
+  all:
+    hosts:
+      my_ungrouped_host:
+    children:
+      group1:
+        hosts:
+          my_server:
+          my_database:
+      group2:
+        hosts:
+          sample.mydomain.com:
+          db.mydomain.com:
+      group3:
+        hosts:
+          192.168.1.5:
+          192.168.1.6:
   ```
 
-  Ansible supports more complicated inventory management.  If you have a need for
-  that, consult the [Ansible
+- Ansible supports more complicated inventory management.  If you have
+  a need for that, consult the [Ansible
   documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
   for more information.
-* When adding a new user, the user's public ssh key must be stored as a
-  parameter in
-  [AWS SSM](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html).
+- You must create a directory `group_vars` at the root of this project
+  that contains files with the Ansible variable values for each group
+  specified in the inventory; for example, to specify the same values
+  for every host in the inventory you might create a single file named
+  `all.yml` that looks like this:
+
+  ```yaml
+  allow_sudo: true
+  ansible_become: yes
+  username: audit
+  ssh_public_key: "{{ lookup('aws_ssm', /ssh/public/key) }}"
+  ```
 
 ## Usage ##
 
 ### Adding a new user account ###
 
 ```console
-ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="username=USERID ssm_public_key=/PATH/TO/KEY ssm_region=us-east-1" --become
-```
-
-### Adding a new privileged user account (allowed to sudo) ###
-
-```console
-ansible-playbook --inventory=inventory.txt create/playbook.yml --extra-vars="allow_sudo=true username=USERID ssm_public_key=/PATH/TO/KEY ssm_region=us-east-1" --become
+ansible-playbook --inventory=inventory.yml create/playbook.yml
 ```
 
 ### Deleting an existing user account ###
 
 ```console
-ansible-playbook --inventory=inventory.txt delete/playbook.yml --extra-vars="username=USERID" --become
+ansible-playbook --inventory=inventory.yml delete/playbook.yml
 ```
 
 ## Contributing ##
