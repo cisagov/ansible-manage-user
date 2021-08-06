@@ -8,10 +8,10 @@ Ansible playbooks to manage a user account on a set of hosts.
 
 These are the actions that are currently supported:
 
-* Create a new user account and add a public ssh key to its
+- Create a new user account and add a public ssh key to its
   `authorized_keys` file, with the option to allow the user to run
   privileged commands via `sudo`
-* Delete an existing user account and all of its directories and files
+- Delete an existing user account and all of its directories and files
 
 ## Warning ⚠️ ##
 
@@ -20,9 +20,9 @@ that you plan to manage!
 
 ## Pre-requisites ##
 
-* You must run these playbooks as a user that has ssh access to and
+- You must run these playbooks as a user that has ssh access to and
   sudo privileges on each target host in your inventory.
-* You must create an Ansible inventory file at the root of this
+- You must create an Ansible inventory file at the root of this
   project containing the name or IP address of each target host on
   which you wish to manage users.  A sample inventory file might look
   like this:
@@ -46,11 +46,11 @@ that you plan to manage!
           192.168.1.6:
   ```
 
-* Ansible supports more complicated inventory management.  If you have
+- Ansible supports more complicated inventory management.  If you have
   a need for that, consult the [Ansible
   documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
   for more information.
-* You must create a directory `group_vars` at the root of this project
+- You must create a directory `group_vars` at the root of this project
   that contains files with the Ansible variable values for each group
   specified in the inventory; for example, to specify the same values
   for every host in the inventory you might create a single file named
