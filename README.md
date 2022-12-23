@@ -1,8 +1,6 @@
 # ansible-manage-user ⚙️ #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-manage-user/workflows/build/badge.svg)](https://github.com/cisagov/ansible-manage-user/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-manage-user.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-manage-user/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-manage-user.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-manage-user/context:python)
 
 Ansible playbooks to manage a user account on a set of hosts.
 
