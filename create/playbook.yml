@@ -23,6 +23,7 @@
         key: "{{ ssh_public_key }}"
 
     - name: Allow user to use sudo without password
+      when: allow_sudo | bool
       block:
         - name: Ensure sudo-nopw group exists
           ansible.builtin.group:
@@ -41,4 +42,3 @@
           ansible.builtin.user:
             name: "{{ username }}"
             groups: sudo-nopw
-      when: allow_sudo|bool
