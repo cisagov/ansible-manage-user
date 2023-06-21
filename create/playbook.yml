@@ -1,7 +1,8 @@
 ---
 # tasks file for create user
 
-- hosts: all
+- name: Create user
+  hosts: all
   vars:
     # Default to false; this can be overridden via:
     #  ansible-playbook --extra-vars="allow_sudo=true"
