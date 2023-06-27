@@ -1,7 +1,8 @@
 ---
 # tasks file for delete user
 
-- hosts: all
+- name: Delete user
+  hosts: all
   tasks:
     - name: Delete account for user
       ansible.builtin.user:

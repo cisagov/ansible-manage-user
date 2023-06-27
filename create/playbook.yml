@@ -1,10 +1,11 @@
 ---
 # tasks file for create user
 
-- hosts: all
+- name: Create user
+  hosts: all
   vars:
     # Default to false; this can be overridden via:
-    #  ansible-playbook --extra-vars="allow_sudo=true"
+    # ansible-playbook --extra-vars="allow_sudo=true"
     allow_sudo: false
   tasks:
     - name: Create account for user
@@ -23,6 +24,7 @@
         key: "{{ ssh_public_key }}"
 
     - name: Allow user to use sudo without password
+      when: allow_sudo | bool
       block:
         - name: Ensure sudo-nopw group exists
           ansible.builtin.group:
@@ -41,4 +43,3 @@
           ansible.builtin.user:
             name: "{{ username }}"
             groups: sudo-nopw
-      when: allow_sudo|bool
