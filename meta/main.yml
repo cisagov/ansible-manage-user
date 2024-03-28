@@ -1,0 +1,44 @@
+---
+# Note that dependencies listed here are automatically installed
+# before this role.  Role variables for any roles listed here can be
+# assigned static variables.
+#
+# See also cisagov/skeleton-ansible-role#153.
+dependencies: []
+galaxy_info:
+  author: First Last
+  company: CISA Cyber Assessments
+  description: Skeleton Ansible role
+  galaxy_tags:
+    - skeleton
+  license: CC0
+  # With the release of version 2.10, Ansible finally correctly
+  # identifies Kali Linux as being the Kali distribution of the Debian
+  # OS family.  This simplifies a lot of things for roles that support
+  # Kali Linux, so it makes sense to force the installation of Ansible
+  # 2.10 or newer.
+  min_ansible_version: "2.10"
+  namespace: cisagov
+  platforms:
+    - name: Amazon Linux
+      versions:
+        - "2023"
+    - name: Debian
+      versions:
+        - buster
+        - bullseye
+        - bookworm
+        - trixie
+    - name: Fedora
+      versions:
+        - "38"
+        - "39"
+    - name: Kali
+      versions:
+        - "2023"
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+  role_name: skeleton
+  standalone: true

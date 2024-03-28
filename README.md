@@ -44,6 +44,7 @@ that you plan to manage!
           192.168.1.6:
   ```
 
+<<<<<<< HEAD
 - Ansible supports more complicated inventory management.  If you have
   a need for that, consult the [Ansible
   documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
@@ -53,6 +54,31 @@ that you plan to manage!
   specified in the inventory; for example, to specify the same values
   for every host in the inventory you might create a single file named
   `all.yml` that looks like this:
+=======
+## Installation ##
+
+This role can be installed via the command:
+
+```console
+ansible-galaxy ansible-galaxy install --role-file path/to/requirements.yml
+```
+
+where `requirements.yml` looks like:
+
+```yaml
+---
+- name: skeleton
+  src: https://github.com/cisagov/skeleton-ansible-role
+```
+
+and may contain other roles as well.
+
+For more information about installing Ansible roles via a YAML file,
+please see [the `ansible-galaxy`
+documentation](https://docs.ansible.com/ansible/latest/galaxy/user_guide.html#installing-multiple-roles-from-a-file).
+
+## Example Playbook ##
+>>>>>>> c121f6c2d751ea234695e5ff5188c9a834537efd
 
   ```yaml
   allow_sudo: true

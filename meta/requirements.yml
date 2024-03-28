@@ -1,0 +1,7 @@
+---
+# Note that role dependencies listed here are made available to the
+# role but _are not_ automatically installed.  Role variables cannot
+# be specified here.
+#
+# See also cisagov/skeleton-ansible-role#153.
+[]
