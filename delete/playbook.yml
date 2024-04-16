@@ -7,5 +7,5 @@
     - name: Delete account for user
       ansible.builtin.user:
         name: "{{ username }}"
-        remove: yes
+        remove: true
         state: absent
