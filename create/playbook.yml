@@ -15,7 +15,7 @@
 
     - name: Set home directory permissions
       ansible.builtin.file:
-        mode: 0750
+        mode: u=rwx,g=rx,o=
         path: /home/{{ username }}
 
     - name: Add ssh public key as authorized key for user
