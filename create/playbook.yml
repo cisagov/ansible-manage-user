@@ -35,9 +35,16 @@
           ansible.builtin.lineinfile:
             dest: /etc/sudoers
             state: present
+            # yamllint/ansible-lint complain about the following lines
+            # being quoted, but we need the quotes to ensure that the
+            # percent characters do not get interpreted as YAML
+            # special characters.
+            #
+            # yamllint disable rule:quoted-strings
             regexp: '^%sudo-nopw ALL\='
             line: '%sudo-nopw ALL=(ALL) NOPASSWD:ALL'
             validate: 'visudo -cf %s'
+            # yamllint enable rule:quoted-strings
 
         - name: Add user to sudo-nopw group
           ansible.builtin.user:
