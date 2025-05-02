@@ -81,7 +81,8 @@ jobs:
         # java-kotlin, javascript-typescript, python, ruby, and swift.
         language:
           - actions
-          - python
+          # There is no Python code in this project.
+          # - python
         # Learn more...
         # https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#overriding-automatic-language-detection
 
