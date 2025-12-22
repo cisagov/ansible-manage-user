@@ -1,6 +1,8 @@
 # ansible-manage-user ⚙️ #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-manage-user/workflows/build/badge.svg)](https://github.com/cisagov/ansible-manage-user/actions)
+[![License](https://img.shields.io/github/license/cisagov/ansible-manage-user)](https://spdx.org/licenses/)
+[![CodeQL](https://github.com/cisagov/ansible-manage-user/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-manage-user/actions/workflows/codeql-analysis.yml)
 
 Ansible playbooks to manage a user account on a set of hosts.
 
